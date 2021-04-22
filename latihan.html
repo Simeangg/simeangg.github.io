@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan</title>
+    <style>
+       *{
+           margin: 0;
+           padding: 0;
+           line-height: 0;
+       } 
+       body {
+           background-color: #ccc;
+       }
+
+       .container {
+           width: 600px;
+           border: 5px solid white;
+           margin: 10px auto;
+           overflow: auto;
+       }
+
+       .kecill {
+           width: 200px;
+           float: left;
+           border: 2px solid white;
+           box-sizing: border-box;
+       }
+
+       .kecill:hover {
+           opacity: 0.5;
+           cursor: pointer;
+       }
+
+       @keyframes fade {
+           to {
+               opacity: 1;
+           }
+       }
+
+       .fadeIn {
+           opacity: 0;
+           animation: fade 0.5s forwards;
+       }
+
+       .active {
+           opacity: 0.5;
+       }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="besar">
+            <img src="img/1.jpg" alt="" class="besarr">
+        </div>
+        <div class="kecil">
+            <img src="img/2.jpg" alt="" class="kecill">
+            <img src="img/4.jpg" alt="" class="kecill">
+            <img src="img/5.jpg" alt="" class="kecill">
+            <img src="img/6.jpg" alt="" class="kecill">
+            <img src="img/7.jpg" alt="" class="kecill">
+            <img src="img/8.jpg" alt="" class="kecill">
+            
+        </div>
+    </div>
+
+    <script>
+        const container = document.querySelector('.container');
+        const besar = document.querySelector('.besarr');
+        const kecil = document.querySelectorAll('.kecill');
+
+        container.addEventListener('click', function(e){
+            if(e.target.className == 'kecill'){
+                besar.src = e.target.src;
+                besar.classList.add('fadeIn');
+                setTimeout(function(){
+                    besar.classList.remove('fadeIn');
+                },500);
+
+                kecil.forEach(function(kecill){
+                    // kecill.className = 'kecill'; 
+
+                    if(kecill.classList.contains('active')){
+                        kecill.classList.remove('active');
+                    }
+                });
+                e.target.classList.add('active');
+                
+
+                
+            }
+        });
+    </script>
+</body>
+</html>

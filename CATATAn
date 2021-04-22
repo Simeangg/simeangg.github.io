@@ -1,0 +1,136 @@
+DOM (Document Oject Model)
+adalah antar muka pemograman untuk HTML yang merepresentasikan halaman web, sehingga
+program dapat mengubah dan memanipulasi strukturnya.
+
+Tipe-tipe Node :
+1. Elemen
+2. Attribute
+3. Text
+4. CData Section
+5. Entity
+6. Processing Instruction
+7. Comment
+8. Document
+9. Document Type
+10. Document Fragment
+11. Notation
+
+
+perbedaan NodeList VS HTMLColecction
+- Keduanya merupakan KUMPULAN KODE
+- Struktur datanya mirip ARRAY
+- nodeList dapat berisi apapun,sedangkan HTMLColecction harus berisi elemen HTML
+- HTMLColecction bersifat live sedangkan nodeList tidak
+
+Struktur Hierarki DOM
+1. Root Node
+    - node yang menjadi sumber dari semua node lain di dalam DOM
+    - Document
+
+2. Parent Node
+    - node yang berada 1 tingkat di atas node yang lain
+    - body adalah parent dari h1,p,p,div dan adalah
+
+3. Child Node
+    - node yang berada 1 tingkat dibawah node yang lain
+    - h1 adalah child dari body
+
+
+
+DOM Selection Method
+- getElementById()           Menghasilkan Element
+- getElementsByTagName()    Menghasilkan HTMLCollection
+- getElementsByClassName()  Menghasilkan HTMLCollection
+- querySelector()           Menghasilkan Element
+- querySelectorAll()        Menghasilkan nodeList
+
+
+DOM Manipulation
+Manipulasi Element
+    - element.innerHTML -> Mengubah isi dari tag HTML,Jika kita 
+        membuat tag baru di dalam satu section atau elemen dengan innerHTML maka tag yang sebelumnya akan hilang di gantikan dengan tag baru.
+  
+    - element.style.<property> 
+  
+    - element.setAttribute() menambahkan attribut baru di dalam sebuah elemen. 
+        get.Attribute berguna untuk melihat isi dari attribute tersebut biasanya di ketik di console.
+    cth : judul.setAttribute('id')
+        judul.removeAttribute('id') menghapus atribut
+  
+    - element.classList -> Mengatur class pada suatu elemen
+        dibagi menjadi beberapa bagian
+        - element.classList.add() Menambah class
+        - element.claasList.remove() Menghapus class
+        - element.classList.toggle() menambah dan menghapus class
+        - element.classList.item() Mengetahui nama class pada suatu elemen
+        - element.classList.contains() Men Check class pada suatu elemen
+        - element.classList.replace() mengganti class
+
+
+MANIPULATION Node
+     1. document.createElement() -> membuat Elemen
+     2. document.createTextNode() -> isi dari elemen yang baru dibuat
+     3. node.appendChild()  -> simpan ke akhir dari sebuah element parents
+     4. node.insertBefore() -> simpan
+     5. parentNode.removeChild() ->menhapus
+     6. parentNode.replaceChild() -> mengganti
+
+
+
+
+
+
+EVENTS
+    Terbagi menjadi 2 bagian :
+
+    1. Event Handler
+        - Inline HTML attribute
+        - Element menthod
+    
+    2. addEvenListener()
+        - Mouse Event
+        - Keyboard Event
+        - Resources Event
+        - Focus Event
+        - View Event
+        - Form Event
+        dll Bisa di liat dokumentasi di developer.mozilla.org/en-US/docs/Web/Events
+
+    perbedaan dari kedua cara ini adalah Event handler tidak dapat menjalankan perintah secara bersamaan yang bersifat menimpa,sedangkan addEvenListener dapat menjalankan perintah secara bersamaan.
+
+
+
+
+    DOM Traversal Method
+
+    - parentNode        => Mengembalikan Node
+    - parentElement     => element 
+    - nextSibling       => Node
+    - nextElementSibling (saudara kandung setelah elemen) => element
+    - previousSibling       => node
+    - previousElementSibling (saudara kandung sebelum elemen) => element
+        
+
+    PREVENT DEFAULT => Berfungsi agar elemen yang berjalan default bisa di berhentikan.
+    cth elemen a jika di klik dia akan otomatis refresh tidak dapat digunakan pada javascript.
+
+    cth : 
+        Close.forEach(function(el){
+        el.addEventListener('click', function(e){
+        e.target.parentElement.style.display = 'none';
+        e.preventDefault();
+        });
+    });
+
+
+
+    Event Bubling 
+        artinya jika element child dan parent sama" mempunyai event maka event parent akan lebih dulu di eksekusi.
+        dan cara menghentikan nya adalah dengan menggunakan perintah 
+        - stopPropagation() 
+
+
+
+
+
+
